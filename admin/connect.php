@@ -12,6 +12,5 @@ echo 'you are connected';
 }
 catch(PDOException $e){
 echo 'failed connected'.$e->getMessage();
-
 }
 ?>
