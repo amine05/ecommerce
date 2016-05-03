@@ -1,4 +1,4 @@
-<?php 
+ <?php 
 $dsn='mysql:localhost;dbname=shop';
 $user='root';
 $pass='';
@@ -13,4 +13,4 @@ echo 'you are connected';
 catch(PDOException $e){
 echo 'failed connected'.$e->getMessage();
 }
-?>
+?> 
