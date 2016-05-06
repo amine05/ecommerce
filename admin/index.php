@@ -1,10 +1,13 @@
 <?php
 session_start (); 
+$noNavbar ='';
+$pageTitle='Login';
 if(isset( $_SESSION['Username'])){
      header('Location: dasboard.php');
 }
 print_r($_SESSION);
 include 'init.php';
+
  include $tpl.'header.php';
  include 'includes/languages/english.php';
 if($_SERVER['REQUEST_METHOD']=='POST'){
