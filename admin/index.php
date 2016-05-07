@@ -16,13 +16,14 @@ if($_SERVER['REQUEST_METHOD']=='POST'){
      $password=$_POST['pass']; 
     $hashedPass=sha1($password);
     echo $hashedPass;
-    $stmt=$con->prepare("SELECT Username, Password FROM shop.users WHERE Username=? AND Password=? AND GroupID=1");
+    $stmt=$con->prepare("SELECT UserID,Username, Password FROM shop.users WHERE Username=? AND Password=? AND GroupID=1 LIMIT 1");
     $stmt->execute(array($username, $hashedPass));
+    $row=$stmt->fetch();
    $count=$stmt->rowCount(); 
     echo "</br>".$count; 
     if ($count>0){
-       // echo'welcome'. $username;
-        $_SESSION['Username']=$username;
+        $_SESSION['ID']=$row['UserID'];
+          $_SESSION['Username']=$username;
         header('Location: dasboard.php');
     }
 }
